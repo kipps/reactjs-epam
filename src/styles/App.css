@@ -10,3 +10,13 @@ div.header {
 .text-center {
     text-align: center;
 }
+
+.testBlock {
+    margin-bottom: 16px;
+}
+.testBlock > div {
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 3px;
+    text-align: center;
+    padding: 20px;
+}
