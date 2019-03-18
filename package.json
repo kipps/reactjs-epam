@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production",
-    "build-dev": "webpack --mode none",
+    "build": "webpack --mode production --env.NODE_ENV=production",
+    "build-dev": "webpack --mode development --env.NODE_ENV=development",
     "test": "jest --watchAll"
   },
   "repository": {
