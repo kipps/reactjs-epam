@@ -4,9 +4,9 @@
   "description": "React JS course",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production --env.NODE_ENV=production",
-    "build-dev": "webpack --mode development --env.NODE_ENV=development",
+    "start": "webpack-dev-server --config webpack.dev.js --open --hot",
+    "build": "webpack --config webpack.prod.js",
+    "build-dev": "webpack --config webpack.dev.js",
     "test": "jest --watchAll"
   },
   "repository": {
