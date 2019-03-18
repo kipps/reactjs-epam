@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = env => {
 
-  console.log(`NODE_ENV = ${env.NODE_ENV}`);
+  console.log(`NODE_ENV = ${process.env.NODE_ENV}`);
 
   return {
     mode: 'production',
@@ -29,7 +29,7 @@ module.exports = env => {
           test: /\.scss$/,
           use: [
             // fallback to style-loader in development
-            env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+            process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
             "css-loader",
             "sass-loader"
           ]
