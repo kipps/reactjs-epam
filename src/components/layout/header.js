@@ -1,0 +1,42 @@
+import React from 'react';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import User from '../user/User'
+import Radio from '../elements/Radio'
+
+class Header extends React.Component {
+  render() {
+    return (
+      <header className="Header pt-24 pb-24">
+        <Container>
+          <Row className='mb-24'>
+            <Col className='flex v-center'>
+              <h1 className='white f-large'>Movies for fun</h1>
+            </Col>
+            <Col className='flex v-center h-right'>
+              <User name='Roman Shevchenko'/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <input type="search" placeholder='Finde your movie' className='full'/>
+             <div className='flex space-between v-center pt-8'>
+               <div className='flex v-center'>
+                 <span>Sort by:</span>
+                 <Radio className='flex ml-8' label_1='Title' label_2='Genre' name='sort'/>
+               </div>
+               <div>
+                 <Button variant="danger" size="sm">Search</Button>
+               </div>
+             </div>
+            </Col>
+          </Row>
+        </Container>
+      </header>
+    );
+  }
+}
+
+export default Header;
