@@ -13,8 +13,7 @@ class Content extends React.Component {
           <InformTools/>
         </div>
         <div className='pt-24 pb-24'>
-              {/*<p>No films found</p>*/}
-              <MoviesList />
+          <MoviesList movies={this.props.movies}/>
         </div>
       </div>
     );
