@@ -24,20 +24,20 @@ class App extends React.Component {
   }
   render(){
     return (
-      <div>
+      <div className="header">
         <h1>Hello world!!!</h1>
         <p>Start project</p>
         <div>
           <Container>
-            <Row>
+            <Row className="testBlock">
               <Col md={4}>md=4</Col>
               <Col md={{ span: 4, offset: 4 }}>{`md={{ span: 4, offset: 4 }}`}</Col>
             </Row>
-            <Row>
+            <Row className="testBlock">
               <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
               <Col md={{ span: 3, offset: 3 }}>{`md={{ span: 3, offset: 3 }}`}</Col>
             </Row>
-            <Row>
+            <Row className="testBlock">
               <Col md={{ span: 6, offset: 3 }}>{`md={{ span: 6, offset: 3 }}`}</Col>
             </Row>
           </Container>
