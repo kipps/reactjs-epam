@@ -24,9 +24,6 @@ const movies = [
 ];
 
 class App extends React.Component {
-  stage = {
-  }
-
   render() {
     return (
       <ErrorBoundary>

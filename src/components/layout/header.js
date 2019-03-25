@@ -6,6 +6,9 @@ import Button from 'react-bootstrap/Button'
 import User from '../user/User'
 import Radio from '../elements/Radio'
 
+
+let searchBy = ['Genre', 'Title', 'Other'];
+
 class Header extends React.Component {
   render() {
     return (
@@ -24,8 +27,8 @@ class Header extends React.Component {
               <input type="search" placeholder='Finde your movie' className='full'/>
              <div className='flex space-between v-center pt-8'>
                <div className='flex v-center'>
-                 <span>Sort by:</span>
-                 <Radio className='flex ml-8' label_1='Title' label_2='Genre' name='sort'/>
+                 <span>Search by:</span>
+                 <Radio className='ml-8' label={searchBy} name='sort'/>
                </div>
                <div>
                  <Button variant="danger" size="sm">Search</Button>

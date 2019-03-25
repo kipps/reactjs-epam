@@ -1,16 +1,16 @@
 @each $name, $size in $indents {
  .m{
    &t-#{$name} {
-     margin-top: $size;
+     margin-top: $size !important;
    }
    &b-#{$name} {
-     margin-bottom: $size;
+     margin-bottom: $size !important;
    }
    &r-#{$name} {
-     margin-right: $size;
+     margin-right: $size !important;
    }
    &l-#{$name} {
-     margin-left: $size;
+     margin-left: $size !important;
    }
  }
   .p{

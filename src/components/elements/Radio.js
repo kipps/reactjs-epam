@@ -1,17 +1,20 @@
 import React from 'react';
 
+const renderRadioList = (array) => {
+  return array.label.map((item) =>
+    <label key={item} name={array.name} className='inline ml-8 mr-8'>
+      <span className='inline mr-4'>{item}</span>
+      <input type='radio' name={array.name}/>
+    </label>
+  )
+  console.log(array)
+};
+
 const Radio = (props) => {
-  return(
-   <div className={props.className + ' Radio'}>
-     <label className='mr-12'>
-       <span>{props.label_1}</span>
-       <input name={props.name} value={props.label_1} type="radio" className='ml-8'/>
-     </label>
-     <label>
-       <span>{props.label_2}</span>
-       <input name={props.name} value={props.label_2} type="radio" className='ml-8'/>
-     </label>
-   </div>
+  return (
+    <div className={props.className + ' Radio'}>
+      {renderRadioList(props)}
+    </div>
   );
 }
 

@@ -5,26 +5,25 @@ import Col from 'react-bootstrap/Col'
 import Movie from '../movie/Movie'
 
 class MoviesList extends React.Component {
+
+  renderList = (movies) => {
+    return movies.map((movie) =>
+      <div className='mb-24 mr-16 ml-16' key={movie.title}>
+        <Movie title={movie.title}
+               genre={movie.genre}
+               date={movie.date}
+               img={movie.img}
+        />
+      </div>
+    );
+  }
+
   render() {
-    const content = (array) => {
-      if(array.movies.length > 0){
-        return array.movies.map((i, index) =>
-          <div className='mb-24 mr-16 ml-16'  key={index}>
-            <Movie title={i.title}
-                   genre={i.genre}
-                   date={i.date}
-                   img={i.img}
-            />
-          </div>
-        );
-      }else {
-        return <Col><h1 className='f-large'>No films found</h1></Col>
-      }
-    }
+    const { movies } = this.props;
     return (
       <Container>
         <Row>
-          {content(this.props)}
+          { movies.length > 0 ? this.renderList(movies) : <Col><h1 className='f-large'>No films found</h1></Col> }
         </Row>
       </Container>
     );
