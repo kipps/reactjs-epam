@@ -1,0 +1,27 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: medium;
+}
+
+html, body, .body, #root {
+  height: 100%;
+}
+
+.body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Content {
+  flex: 1 2 auto;
+}
+.full {
+  width: 100%;
+}
+.grey {
+  background: aliceblue;
+}
+.inline {
+  display: inline-block;
+}

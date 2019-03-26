@@ -2,13 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = env => {
-
-  console.log(`NODE_ENV = ${process.env.NODE_ENV}`);
-
-  return {
+module.exports = {
     entry: "./src/index.js",
-    devtool: 'source-map',
     output: {
       path: path.join(__dirname, "/dist"),
       filename: "index-bundle.js"
@@ -23,15 +18,6 @@ module.exports = env => {
         {
           test: /\.css$/,
           use: ["style-loader", "css-loader"]
-        },
-        {
-          test: /\.scss$/,
-          use: [
-            // fallback to style-loader in development
-            process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-            "css-loader",
-            "sass-loader"
-          ]
         }
       ]
     },
@@ -46,5 +32,4 @@ module.exports = env => {
         chunkFilename: "[id].css"
       })
     ]
-  }
 };
