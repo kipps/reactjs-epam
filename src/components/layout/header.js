@@ -1,8 +1,8 @@
 import React from 'react';
-// import Container from 'react-bootstrap/Container'
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
-// import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import User from '../user/User'
 import Radio from '../elements/Radio'
 
@@ -13,7 +13,7 @@ class Header extends React.Component {
   render() {
     return (
       <header className="Header pt-24 pb-24">
-        {/* <Container>
+        <Container>
           <Row className='mb-24'>
             <Col className='flex v-center'>
               <h1 className='white f-large'>Movies for fun</h1>
@@ -36,7 +36,7 @@ class Header extends React.Component {
              </div>
             </Col>
           </Row>
-        </Container> */}
+        </Container>
       </header>
     );
   }
