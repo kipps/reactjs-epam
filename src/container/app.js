@@ -24,10 +24,23 @@ const movies = [
 ];
 
 class App extends React.Component {
+  state = {
+    movies:[]
+  }
+
+  componentDidMount() {
+    fetch('/movies')
+      .then(res => res.json())
+      .then(movies => this.setState({movies}));
+  }
+
   render() {
     return (
       <ErrorBoundary>
         <div className="App body">
+          {this.state.movies.map((movie) =>
+            <p key={movie.id}>{movie.title}</p>
+          )}
           <Header/>
           <Content movies={movies}/>
           <Footer/>
