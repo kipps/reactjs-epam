@@ -8,7 +8,7 @@ import Movie from './Movie';
 configure({ adapter: new Adapter() });
 
 describe("Movie", () => {
-    it("renders default star", () =>
+    it("renders default movie", () =>
         expect(
             shallow(<Movie />)
                 .find('div.Movie')

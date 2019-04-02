@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer  renders footer correctly 1`] = `
+<footer
+  className="Footer"
+>
+  <p>
+    epam's ReactJS course
+  </p>
+</footer>
+`;
