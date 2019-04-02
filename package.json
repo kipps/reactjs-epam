@@ -9,7 +9,8 @@
     "build-dev": "webpack --mode development --env.NODE_ENV=development",
     "test": "jest --watchAll",
     "test-c": "jest --watchAll --coverage --collectCoverageFrom=src/**/*.js",
-    "snap-update": "jest --updateSnapshot"
+    "snap-update": "jest --updateSnapshot",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.1",
     "css-loader": "^2.1.1",
+    "cypress": "^3.2.0",
     "deep-freeze": "0.0.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
