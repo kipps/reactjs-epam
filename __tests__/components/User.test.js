@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { configure } from 'enzyme';
+import { shallow, render } from 'enzyme/build';
+import { configure } from 'enzyme/build';
 import renderer from 'react-test-renderer';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16/build';
 
-import User from './User';
+import User from '../../src/components/user/User';
 
 
 configure({ adapter: new Adapter() });
@@ -17,7 +17,7 @@ describe("User ", () => {
         .length
     ).toBe(1));
 
-  it('renders header correctly', () => {
+  it('user snapshot', () => {
     const tree = renderer
       .create(<User />)
       .toJSON();

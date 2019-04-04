@@ -1,8 +1,8 @@
-import { shallow } from 'enzyme';
-import { configure } from 'enzyme';
+import { shallow } from 'enzyme/build';
+import { configure } from 'enzyme/build';
 import renderer from 'react-test-renderer';
-import Adapter from 'enzyme-adapter-react-16';
-import Footer from "../footer";
+import Adapter from 'enzyme-adapter-react-16/build';
+import Footer from "../../src/components/layout/footer";
 
 configure({ adapter: new Adapter() });
 

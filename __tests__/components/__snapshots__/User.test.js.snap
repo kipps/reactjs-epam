@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User  renders header correctly 1`] = `
+exports[`User  user snapshot 1`] = `
 <div
   className="User"
 >

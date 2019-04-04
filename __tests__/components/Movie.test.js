@@ -1,9 +1,9 @@
-import { shallow } from 'enzyme';
-import { configure } from 'enzyme';
+import { shallow } from 'enzyme/build';
+import { configure } from 'enzyme/build';
 import renderer from 'react-test-renderer';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16/build';
 
-import Movie from './Movie';
+import Movie from '../../src/components/movie/Movie';
 
 configure({ adapter: new Adapter() });
 

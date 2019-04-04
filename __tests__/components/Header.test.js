@@ -1,8 +1,8 @@
-import { shallow } from 'enzyme';
-import { configure } from 'enzyme';
+import { shallow } from 'enzyme/build';
+import { configure } from 'enzyme/build';
 import renderer from 'react-test-renderer';
-import Adapter from 'enzyme-adapter-react-16';
-import Header from "../header";
+import Adapter from 'enzyme-adapter-react-16/build';
+import Header from "../../src/components/layout/header";
 
 configure({ adapter: new Adapter() });
 
