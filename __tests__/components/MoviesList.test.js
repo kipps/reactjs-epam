@@ -25,14 +25,14 @@ describe("Radio", () => {
 
   it('renders correctly', () => {
     const tree = renderer
-      .create(component)
+      .create(<MoviesList movies={movies} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("render correct text", () => {
     expect(
-      component.find("h1")
+      shallow(<MoviesList movies={movies} />).find("h1")
         .first()
         .text()
     ).toEqual(textH1);

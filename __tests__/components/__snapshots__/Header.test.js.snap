@@ -105,6 +105,7 @@ exports[`Header  renders header correctly 1`] = `
             <button
               className="btn btn-danger btn-sm"
               disabled={false}
+              onClick={[Function]}
               type="button"
             >
               Search
