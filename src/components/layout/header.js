@@ -10,6 +10,9 @@ import Radio from '../elements/Radio'
 let searchBy = ['Genre', 'Title', 'Other'];
 
 class Header extends React.Component {
+  buttonClick = ()=> {
+    console.log('test click');
+  }
   render() {
     return (
       <header className="Header pt-24 pb-24">
@@ -31,7 +34,7 @@ class Header extends React.Component {
                  <Radio className='ml-8' label={searchBy} name='sort'/>
                </div>
                <div>
-                 <Button variant="danger" size="sm">Search</Button>
+                 <Button onClick={this.buttonClick} variant="danger" size="sm">Search</Button>
                </div>
              </div>
             </Col>

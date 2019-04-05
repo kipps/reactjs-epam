@@ -6,8 +6,8 @@ const renderRadioList = (array) => {
       <span className='inline mr-4'>{item}</span>
       <input type='radio' name={array.name}/>
     </label>
-  )
-  console.log(array)
+  );
+
 };
 
 const Radio = (props) => {

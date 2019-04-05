@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie renders correctly 1`] = `
+<div
+  className="Movie"
+>
+  <img
+    className="Movie__img"
+    src="http://localhost/src/images/undefined.jpg"
+  />
+  <div>
+    <div
+      className="flex space-between v-center mb-8"
+    >
+      <h3 />
+      <span
+        className="Movie__date"
+      />
+    </div>
+    <span>
+      <small />
+    </span>
+  </div>
+</div>
+`;

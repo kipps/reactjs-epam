@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header  renders header correctly 1`] = `
+<header
+  className="Header pt-24 pb-24"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="mb-24 row"
+    >
+      <div
+        className="flex v-center col"
+      >
+        <h1
+          className="white f-large"
+        >
+          Movies for fun
+        </h1>
+      </div>
+      <div
+        className="flex v-center h-right col"
+      >
+        <div
+          className="User"
+        >
+          <a
+            className="User__link black"
+            href="#"
+          >
+            Roman Shevchenko
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col"
+      >
+        <input
+          className="full"
+          placeholder="Finde your movie"
+          type="search"
+        />
+        <div
+          className="flex space-between v-center pt-8"
+        >
+          <div
+            className="flex v-center"
+          >
+            <span>
+              Search by:
+            </span>
+            <div
+              className="ml-8 Radio"
+            >
+              <label
+                className="inline ml-8 mr-8"
+                name="sort"
+              >
+                <span
+                  className="inline mr-4"
+                >
+                  Genre
+                </span>
+                <input
+                  name="sort"
+                  type="radio"
+                />
+              </label>
+              <label
+                className="inline ml-8 mr-8"
+                name="sort"
+              >
+                <span
+                  className="inline mr-4"
+                >
+                  Title
+                </span>
+                <input
+                  name="sort"
+                  type="radio"
+                />
+              </label>
+              <label
+                className="inline ml-8 mr-8"
+                name="sort"
+              >
+                <span
+                  className="inline mr-4"
+                >
+                  Other
+                </span>
+                <input
+                  name="sort"
+                  type="radio"
+                />
+              </label>
+            </div>
+          </div>
+          <div>
+            <button
+              className="btn btn-danger btn-sm"
+              disabled={false}
+              onClick={[Function]}
+              type="button"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+`;

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio renders correctly 1`] = `
+<div
+  className="undefined Radio"
+>
+  <label
+    className="inline ml-8 mr-8"
+  >
+    <span
+      className="inline mr-4"
+    >
+      Genre
+    </span>
+    <input
+      type="radio"
+    />
+  </label>
+  <label
+    className="inline ml-8 mr-8"
+  >
+    <span
+      className="inline mr-4"
+    >
+      Title
+    </span>
+    <input
+      type="radio"
+    />
+  </label>
+</div>
+`;
