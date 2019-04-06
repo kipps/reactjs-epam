@@ -1,20 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Movie = (props) => {
   return (
-    <div className='Movie'>
-      <img alt={props.alt} src={window.location.origin + '/src/images/' + props.img + '.jpg'} className='Movie__img'/>
+    <div className='Movie mb-32'>
+      <img alt={props.title} src={props.poster_path} className='Movie__img'/>
       <div>
-        <div className='flex space-between v-center mb-8'>
+        <div className='mb-8'>
+          <div className='Movie__date mb-8'>
+            {props.release_date}
+          </div>
           <h3>{props.title}</h3>
-          <span className='Movie__date'>
-            {props.date}
-          </span>
         </div>
-        <span><small>{props.genre}</small></span>
+        <div className='Movie__genres'>
+          <span>
+            {props.genres.map((g, i)=> <small key={i}>{g}</small>)}
+         </span>
+        </div>
       </div>
     </div>
   );
 }
+
+Movie.propTypes = {}
 
 export default Movie;

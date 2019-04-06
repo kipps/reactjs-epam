@@ -6,4 +6,9 @@
     margin-bottom: 8px;
     width: 198px;
   }
+  &__genres {
+    small:not(:last-child)::after {
+      content: ', ';
+    }
+  }
 }
