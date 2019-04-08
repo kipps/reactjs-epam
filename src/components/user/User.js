@@ -1,16 +1,21 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import {connect} from 'react-redux';
+import React from "react";
 
 const User = (props) => {
+  const { name, surname, age } = props.user
   return (
     <div className='User'>
       <a href='#' className='User__link black'>
-        {props.name}
+          {name} {surname}
       </a>
     </div>
   );
 }
 
-export default User;
+const mapStateToProps = store => {
+    return {
+        user: store.user,
+    }
+}
+
+export default connect(mapStateToProps)(User)
