@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import React from "react";
+import Movie from "../movie/Movie";
 
 const User = (props) => {
   const { name, surname, age } = props.user

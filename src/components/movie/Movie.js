@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Movie = (props) => {
+  // const { title, poster_path, release_date, genres } = this.props;
   return (
     <div className='Movie mb-32'>
       <img alt={props.title} src={props.poster_path} className='Movie__img'/>
@@ -22,6 +23,19 @@ const Movie = (props) => {
   );
 }
 
-Movie.propTypes = {}
+Movie.propTypes = {
+  id:	PropTypes.number,
+  title:	PropTypes.string,
+  tagline:	PropTypes.string,
+  vote_average:	PropTypes.number,
+  vote_count:	PropTypes.number,
+  release_date:	PropTypes.string,
+  poster_path:	PropTypes.string,
+  overview:	PropTypes.string,
+  budget:	PropTypes.number,
+  revenue:	PropTypes.number,
+  runtime:	PropTypes.number,
+  genres:	PropTypes.array
+}
 
 export default Movie;

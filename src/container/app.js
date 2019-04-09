@@ -28,5 +28,11 @@ const mapStateToProps = store => {
   }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => {
+  return {
+    showMovies: Movies => dispatch(showMovies(Movies))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
