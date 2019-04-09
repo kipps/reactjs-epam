@@ -1,21 +1,20 @@
 import {connect} from 'react-redux';
 import React from "react";
-import Movie from "../movie/Movie";
 
 const User = (props) => {
-  const { name, surname, age } = props.user
+  const { name } = props;
   return (
     <div className='User'>
       <a href='#' className='User__link black'>
-          {name} {surname}
+          {name}
       </a>
     </div>
   );
 }
 
-const mapStateToProps = store => {
+const mapStateToProps = state => {
     return {
-        user: store.user,
+        name: state.userState.name,
     }
 }
 

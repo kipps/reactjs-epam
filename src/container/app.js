@@ -1,4 +1,3 @@
-import {connect} from 'react-redux';
 import React, {Component} from "react";
 import Header from './../components/layout/header';
 import Content from './../components/layout/content';
@@ -21,18 +20,5 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = store => {
-  console.log(store)
-  return {
-    user: store.user,
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    showMovies: Movies => dispatch(showMovies(Movies))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App;
 

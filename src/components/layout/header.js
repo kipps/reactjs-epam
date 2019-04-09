@@ -1,19 +1,25 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import User from '../user/User'
-import Radio from '../elements/Radio'
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import User from '../user/User';
+import Radio from '../elements/Radio';
+import {setYear} from "../../redux/actions/MoviesAction";
 
 
 let searchBy = ['Genre', 'Title', 'Other'];
 
 class Header extends React.Component {
-  buttonClick = ()=> {
-    console.log('test click');
+
+  onBtnClick = e => {
+    const year = +e.currentTarget.innerText;
+    this.props.setYear(year);
   }
   render() {
+    const { year } = this.props;
     return (
       <header className="Header pt-24 pb-24">
         <Container>
@@ -34,7 +40,8 @@ class Header extends React.Component {
                  <Radio className='ml-8' label={searchBy} name='sort'/>
                </div>
                <div>
-                 <Button onClick={this.buttonClick} variant="danger" size="sm">Search</Button>
+                 <Button onClick={this.onBtnClick} variant="danger" size="sm">2200</Button>
+                 <p>{year}</p>
                </div>
              </div>
             </Col>
@@ -45,4 +52,23 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+Header.propTypes = {
+  year: PropTypes.number,
+  setYear: PropTypes.func, // добавили новое свойство в propTypes
+}
+
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    year: state.userState.year,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    // showMovies: Movies => dispatch(showMovies(Movies)),
+    setYear: year => dispatch(setYear(year))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
