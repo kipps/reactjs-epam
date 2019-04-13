@@ -1,5 +1,5 @@
 const initialState = {
-  year: 'Аноним',
+  name: 'Аноним',
   year: 2018
 }
 export function userReducer(state = initialState, action) {

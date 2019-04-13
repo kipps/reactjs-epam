@@ -15,8 +15,9 @@ let searchBy = ['Genre', 'Title', 'Other'];
 class Header extends React.Component {
 
   onBtnClick = e => {
-    const year = +e.currentTarget.innerText;
-    this.props.setYear(year);
+    // const year = +e.currentTarget.innerText;
+    // this.props.setYear(year);
+    console.log('click search');
   }
   render() {
     const { year } = this.props;
@@ -40,8 +41,7 @@ class Header extends React.Component {
                  <Radio className='ml-8' label={searchBy} name='sort'/>
                </div>
                <div>
-                 <Button onClick={this.onBtnClick} variant="danger" size="sm">2200</Button>
-                 <p>{year}</p>
+                 <Button onClick={this.onBtnClick} variant="danger" size="sm">Search</Button>
                </div>
              </div>
             </Col>
