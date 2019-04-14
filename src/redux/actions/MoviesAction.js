@@ -1,8 +1,4 @@
-export const SELECT_SUBREDDIT = 'SELECT_SUBREDDIT'
-export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT'
-export const SET_YEAR = 'SET_YEAR'
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+import axios from 'axios';
 
 export const setYear = (year) => {
   return {
@@ -11,33 +7,56 @@ export const setYear = (year) => {
   }
 }
 
-export function selectSubreddit(subreddit) {
-  return {
-    type: SELECT_SUBREDDIT,
-    subreddit
-  }
-
-}
-
-export function invalidateSubreddit(subreddit) {
-  return {
-    type: INVALIDATE_SUBREDDIT,
-    subreddit
+export const loadMovies = () => {
+  return (dispatch) => {
+    return axios.get('https://reactjs-cdp.herokuapp.com/movies/').then((response) => {
+      dispatch(showMovies(response.data));
+    })
   }
 }
 
-function requestPosts(subreddit) {
+export const showMovies = (array) => {
   return {
-    type: REQUEST_POSTS,
-    subreddit
+    type: "SHOW_MOVIES",
+    payload: array
   }
 }
 
-function receivePosts(subreddit, json) {
+function fetchPostsRequest(){
   return {
-    type: RECEIVE_POSTS,
-    subreddit,
-    posts: json.data.children.map(child => child.data),
-    receivedAt: Date.now()
+    type: "FETCH_REQUEST"
   }
+}
+
+function fetchPostsSuccess(payload) {
+  return {
+    type: "FETCH_SUCCESS",
+    payload
+  }
+}
+
+function fetchPostsError() {
+  return {
+    type: "FETCH_ERROR"
+  }
+}
+
+export function fetchPostsWithRedux() {
+  return (dispatch) => {
+    dispatch(fetchPostsRequest());
+    return fetchPosts().then(([response, json]) =>{
+      if(response.status === 200){
+        dispatch(fetchPostsSuccess(json))
+      }
+      else{
+        dispatch(fetchPostsError())
+      }
+    })
+  }
+}
+
+export function fetchPosts() {
+  const URL = "https://reactjs-cdp.herokuapp.com/movies/";
+  return fetch(URL, { method: 'GET'})
+    .then( response => Promise.all([response, response.json()]));
 }
