@@ -19,15 +19,15 @@ class MoviesList extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.setState({loading: true});
-  //   fetch('https://reactjs-cdp.herokuapp.com/movies/')
-  //     .then(response => response.json())
-  //     .then(json => json.data.map( item => item ))
-  //     .then(movies =>
-  //       this.setState({movies, loading: false})
-  //     )
-  // }
+  componentDidMount() {
+    this.setState({loading: true});
+    fetch('https://reactjs-cdp.herokuapp.com/movies/')
+      .then(response => response.json())
+      .then(json => json.data.map( item => item ))
+      .then(movies =>
+        this.setState({movies, loading: false})
+      )
+  }
 
   render() {
     const { movies, loading} = this.state
