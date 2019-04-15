@@ -1,8 +1,4 @@
 import React from 'react';
-// import Container from 'react-bootstrap/Container'
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
-import { connect } from 'react-redux'
 import SearchResult from '../search-result/SearchResult'
 import MoviesList from '../movies-list/MoviesList'
 
@@ -20,10 +16,4 @@ class Content extends React.Component {
     );
   }
 }
-
-const mapStateToProps = store => {
-  return {
-    movies: store.movies,
-  }
-}
-export default connect(mapStateToProps)(Content)
+export default Content;

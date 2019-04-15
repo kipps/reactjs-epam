@@ -1,23 +1,29 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {setYear, searchByTitleRequest} from "../../redux/actions/MoviesAction";
+
+import User from '../user/User';
+import Radio from '../elements/Radio';
+
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import User from '../user/User';
-import Radio from '../elements/Radio';
-import {setYear} from "../../redux/actions/MoviesAction";
 
 
 let searchBy = ['Genre', 'Title', 'Other'];
 
 class Header extends React.Component {
 
-  onBtnClick = e => {
-    // const year = +e.currentTarget.innerText;
-    // this.props.setYear(year);
-    console.log('click search');
+  findMoives = e => {
+    let text = this.searchInput.value;
+    let array = this.props.movies.filter((item)=>{
+      return item.title.includes(text)
+    });
+    console.log(array);
+    this.props.searchByTitleRequest(array);
   }
   render() {
     const { year } = this.props;
@@ -34,14 +40,14 @@ class Header extends React.Component {
           </Row>
           <Row>
             <Col>
-              <input type="search" placeholder='Finde your movie' className='full'/>
+              <input type="search" ref={(input) => {this.searchInput = input}} placeholder='Finde your movie' className='full'/>
              <div className='flex space-between v-center pt-8'>
                <div className='flex v-center'>
                  <span>Search by:</span>
                  <Radio className='ml-8' label={searchBy} name='sort'/>
                </div>
                <div>
-                 <Button onClick={this.onBtnClick} variant="danger" size="sm">Search</Button>
+                 <Button onClick={this.findMoives} variant="danger" size="sm">Search</Button>
                </div>
              </div>
             </Col>
@@ -54,20 +60,22 @@ class Header extends React.Component {
 
 Header.propTypes = {
   year: PropTypes.number,
-  setYear: PropTypes.func, // добавили новое свойство в propTypes
+  setYear: PropTypes.func,
+  searchByTitleRequest: PropTypes.func,
+  movies: PropTypes.array
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     year: state.userState.year,
+    movies: state.moviesState.posts
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    // showMovies: Movies => dispatch(showMovies(Movies)),
-    setYear: year => dispatch(setYear(year))
+    setYear: year => dispatch(setYear(year)),
+    searchByTitleRequest: movies => dispatch(searchByTitleRequest(movies))
   }
 }
 

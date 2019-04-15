@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux-loop'
-import { movieReducer } from './Movies'
-import { userReducer } from './User'
+import { movieReducer } from './MoviesReducer'
+import { userReducer } from './UserReducer'
 
 import {
     SELECT_SUBREDDIT,
