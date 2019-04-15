@@ -37,6 +37,7 @@
     "react-router": "^4.3.1",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
+    "redux-loop": "^4.5.4",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "whatwg-fetch": "^3.0.0"

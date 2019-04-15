@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-loop'
 import { movieReducer } from './Movies'
 import { userReducer } from './User'
 

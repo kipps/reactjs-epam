@@ -1,20 +1,19 @@
+import {loop} from 'redux-loop';
+import {fetchPosts} from "../actions/MoviesAction";
+
 const initialState = {
-  movies: [
-    {
-      id: 1,
-      type: 'test'
-    }
-  ]
+  posts: [],
+  loading: false
 }
 
 export function movieReducer(state = initialState, action) {
   switch (action.type) {
-    case 'SHOW_MOVIES':
-      return { ...state, movies: action.payload }
     case "FETCH_REQUEST":
-      return state;
+      return loop({...state, loading: true}, fetchPosts);
     case "FETCH_SUCCESS":
-      return {...state, posts: action.payload};
+      return {...state, posts: action.payload, loading: false };
+    case "FETCH_ERROR":
+      return {...state, loading: false };
     default:
       return state
   }
