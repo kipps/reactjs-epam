@@ -32,10 +32,17 @@ export function postSortOrderRequest() {
   }
 }
 
-export function search(title) {
+export function searchByTitle(title) {
   return {
-    type: 'SEARCH',
+    type: 'SEARCH_BY_TITLE',
     payload: title
+  };
+}
+
+export function searchByGenre(genre) {
+  return {
+    type: 'SEARCH_BY_GENRE',
+    payload: genre
   };
 }
 
@@ -66,5 +73,10 @@ export const sortByOrder = Cmd.run(
 
 export function fetchSearchMovie(title) {
   let title_ = encodeURIComponent(title);
-  return fetch(`https://reactjs-cdp.herokuapp.com/movies?sortBy=release_date&search=${title_}&searchBy=title`).then((response) => response.json());
+  return fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${title_}&searchBy=title`).then((response) => response.json());
+}
+
+export function fetchSearchGenre(genre) {
+  let genre_ = encodeURIComponent(genre);
+  return fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${genre_}&searchBy=genres`).then((response) => response.json());
 }
