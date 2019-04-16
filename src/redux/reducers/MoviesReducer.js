@@ -10,7 +10,7 @@ import {
 
 const initialState = {
     posts: [],
-    searchType: 'genre',
+    searchType: 'title',
     loading: false
 }
 
