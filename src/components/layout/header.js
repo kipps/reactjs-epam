@@ -19,11 +19,12 @@ class Header extends React.Component {
 
   findMoives = e => {
     let text = this.searchInput.value;
-    let array = this.props.movies.filter((item)=>{
-      return item.title.includes(text)
-    });
-    console.log(array);
-    this.props.searchByTitleRequest(array);
+    // let array = this.props.movies.filter((item)=>{
+    //   return item.title.includes(text)
+    // });
+    // console.log(array);
+    // this.props.searchByTitleRequest(array);
+
   }
   render() {
     const { year } = this.props;

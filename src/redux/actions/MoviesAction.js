@@ -32,12 +32,20 @@ export function postSortOrderRequest() {
   }
 }
 
-export const searchByTitleRequest = (posts) => {
+function moviesSearchFetchSuccessfulAction(movies) {
   return {
-    type: "SEARCH_BY_TITLE",
-    payload: posts
-  }
+    type: 'MOVIES_SEARCH_FETCH_SUCCESSFUL',
+    user
+  };
 }
+
+function moviesSearchFetchFailedAction(err) {
+  return {
+    type: 'MOVIES_SEARCH_FETCH_ERROR',
+    err
+  };
+}
+
 
 export const fetchPosts = Cmd.run(
   () => fetch("https://reactjs-cdp.herokuapp.com/movies/").then((response) => response.json()),
@@ -49,8 +57,6 @@ export const sortByOrder = Cmd.run(
   {successActionCreator: fetchPostsSuccess, failActionCreator: fetchPostsError}
 );
 
-export const searchByTitle = Cmd.run(
-  () => fetch(`https://reactjs-cdp.herokuapp.com/movies?sortBy=release_date&search=${type}=title`).then((response) => response.json()),
-  {successActionCreator: fetchPostsSuccess, failActionCreator: fetchPostsError}
-);
-
+function fetchSearchMovie(title) {
+  return fetch(`https://reactjs-cdp.herokuapp.com/movies?sortBy=release_date&search=${title}=title`).then((response) => response.json());
+}
