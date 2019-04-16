@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {setYear, searchByTitleRequest} from "../../redux/actions/MoviesAction";
+import {setYear, search} from "../../redux/actions/MoviesAction";
 
 import User from '../user/User';
 import Radio from '../elements/Radio';
@@ -11,6 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import store from '../../redux/store/configureStore';
 
 
 let searchBy = ['Genre', 'Title', 'Other'];
@@ -19,6 +20,7 @@ class Header extends React.Component {
 
   findMoives = e => {
     let text = this.searchInput.value;
+    store.dispatch(search(text));
     // let array = this.props.movies.filter((item)=>{
     //   return item.title.includes(text)
     // });

@@ -1,5 +1,5 @@
-import {loop} from 'redux-loop';
-import {fetchPosts, sortByOrder, fetchSearchMovie, userFetchSuccessfulAction, userFetchFailedAction} from "../actions/MoviesAction";
+import {loop, Cmd} from 'redux-loop';
+import {fetchPosts, sortByOrder, fetchSearchMovie, moviesSearchFetchSuccessfulAction, moviesSearchFetchFailedAction} from "../actions/MoviesAction";
 
 const initialState = {
   posts: [],
@@ -16,14 +16,17 @@ export function movieReducer(state = initialState, action) {
       return {...state, posts: action.payload, loading: false };
     case "FETCH_ERROR":
       return {...state, loading: false };
-    case 'INIT':
+    case 'SEARCH':
       return loop(
         {...state, loading: true},
         Cmd.run(fetchSearchMovie, {
-          successActionCreator: userFetchSuccessfulAction,
-          failActionCreator: userFetchFailedAction
+          successActionCreator: moviesSearchFetchSuccessfulAction,
+          failActionCreator: moviesSearchFetchFailedAction,
+          args: [action.payload]
         })
       );
+    case 'MOVIES_SEARCH_FETCH_SUCCESSFUL':
+      return {...state, posts: action.payload, loading: false };
     default:
       return state
   }
