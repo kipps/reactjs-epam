@@ -7,11 +7,9 @@ import {Field, reduxForm} from 'redux-form';
 import Button from "react-bootstrap/Button";
 
 function showResults(value) {
-  console.log('showResults', value);
-  if (value.searchBy !== 'genre') {
-    store.dispatch(searchByTitle(value.search));
-  } else {
-    store.dispatch(searchByGenre(value.search));
+  if (value.search !== undefined && value.search.length > 2) {
+    (value.searchBy === 'title' || value.searchBy === undefined) ?
+      store.dispatch(searchByTitle(value.search)) : store.dispatch(searchByGenre(value.search));
   }
 }
 
@@ -24,7 +22,7 @@ let SearchComponent = ({handleSubmit, submitting}) => {
       <div>
         <div className='flex flex-row v-center'>
           <Field name='search' className={'full mr-16'} type='input' placeholder='search' component={renderInput}/>
-          <Button type='submit' variant='dark'>Search</Button>
+          <Button type='submit' variant='dark' disabled={submitting}>Search</Button>
         </div>
         <div className='flex flex-row pt-16'>
           <p className={'mr-16 f-grey'}>Search by:</p>
