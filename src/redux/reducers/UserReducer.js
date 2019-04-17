@@ -1,6 +1,6 @@
 const initialState = {
-  name: 'Аноним',
-  year: 2018
+  name: 'Roman Shevchenko',
+  year: 1987
 }
 export function userReducer(state = initialState, action) {
   switch (action.type) {
