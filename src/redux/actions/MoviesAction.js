@@ -26,12 +26,6 @@ function fetchPostsError() {
   }
 }
 
-export function postSortOrderRequest() {
-  return {
-    type: "POST_SORT_ORDER"
-  }
-}
-
 export function searchByTitle(title) {
   return {
     type: 'SEARCH_BY_TITLE',
@@ -66,17 +60,17 @@ export const fetchPosts = Cmd.run(
   {successActionCreator: fetchPostsSuccess, failActionCreator: fetchPostsError}
 );
 
-export const sortByOrder = Cmd.run(
-  () => fetch("https://reactjs-cdp.herokuapp.com/movies?sortOrder=title").then((response) => response.json()),
-  {successActionCreator: fetchPostsSuccess, failActionCreator: fetchPostsError}
-);
+export function fetchSearchMovie(obj) {
+  let {search, searchBy, sortBy} = obj;
+  let title, path;
 
-export function fetchSearchMovie(title) {
-  let title_ = encodeURIComponent(title);
-  return fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${title_}&searchBy=title`).then((response) => response.json());
-}
+  if(search != undefined ) {
+    title = encodeURIComponent(search);
+    path = `search=${title}`
+  }
+  (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
+  (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
 
-export function fetchSearchGenre(genre) {
-  let genre_ = encodeURIComponent(genre);
-  return fetch(`https://reactjs-cdp.herokuapp.com/movies?search=${genre_}&searchBy=genres`).then((response) => response.json());
+  console.log(path);
+  return fetch(`https://reactjs-cdp.herokuapp.com/movies?${path}`).then((response) => response.json());
 }

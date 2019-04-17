@@ -22,7 +22,7 @@ let SortComponent = ({handleSubmit}) => {
   return (
     <div>
       <form onSubmit={handleSubmit(showResults)}>
-        <Field name='search' className={'full mr-16'} type='select' component={renderInput}/>
+        <Field name='sortBy' className={'full mr-16'} type='select' component={renderInput}/>
         <Button type='submit' className={'ml-16'} variant="secondary" size="sm">Sort</Button>
       </form>
     </div>
