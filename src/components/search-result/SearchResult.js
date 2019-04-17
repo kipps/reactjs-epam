@@ -9,19 +9,9 @@ import SortComponent from "../sort-by/SortComponent";
 class SearchResult extends React.Component {
   render() {
     return (
-      <Container>
-        <Row>
-          <Col className='flex v-center space-between'>
-            <p>
-              <span><b>{this.props.posts.length}</b> movies found</span>
-            </p>
-            <div className={'flex flex-row v-center'}>
-              <span className='inline mr-8'>Sort by</span>
-             <SortComponent />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <p>
+        <span><b>{this.props.posts.length}</b> movies found</span>
+      </p>
     );
   }
 }

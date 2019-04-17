@@ -1,11 +1,12 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import store from '../../redux/store/configureStore';
 import {searchByTitle} from "../../redux/actions/MoviesAction";
 import {Field, reduxForm} from 'redux-form';
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
+import SearchResult from "../search-result/SearchResult";
 
 function showResults(value) {
   store.dispatch(searchByTitle(value))
@@ -46,7 +47,7 @@ let SearchComponent = ({handleSubmit, submitting}) => {
           <Container>
             <div className={'flex flex-row v-center space-between'}>
               <div>
-                Movies loaded: <b>10</b>
+                <SearchResult />
               </div>
               <div>
                 <label className={'inline mr-8'}>Sort by:</label>
@@ -61,14 +62,12 @@ let SearchComponent = ({handleSubmit, submitting}) => {
 }
 
 SearchComponent.propTypes = {
-  searchType: PropTypes.string,
-  sortBy: PropTypes.string
+  posts: PropTypes.array
 }
 
 const mapStateToProps = state => {
   return {
-    searchType: state.moviesState.searchType,
-    sortBy: state.form.value
+    posts: state.moviesState.posts
   }
 }
 
