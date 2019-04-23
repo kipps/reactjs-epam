@@ -12,4 +12,10 @@
   &.space-between {
     justify-content: space-between;
   }
+  &.h-center {
+    justify-content: center;
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
 }

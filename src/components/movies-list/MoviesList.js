@@ -1,33 +1,44 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Movie from '../movie/Movie'
+import Movie from '../movie/Movie';
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
+import store from '../../redux/store/configureStore'
+import { fetchPostsRequest } from "../../redux/actions/MoviesAction";
 
 class MoviesList extends React.Component {
-
-  renderList = (movies) => {
-    return movies.map((movie) =>
-      <div className='mb-24 mr-16 ml-16' key={movie.key}>
-        <Movie title={movie.title}
-               genre={movie.genre}
-               date={movie.date}
-               img={movie.img}
-        />
-      </div>
-    );
+  componentDidMount() {
+    store.dispatch(fetchPostsRequest());
   }
 
   render() {
-    const { movies } = this.props;
-    return (
-      <Container>
-        <Row>
-          { movies.length > 0 ? this.renderList(movies) : <Col><h1 className='f-large'>No films found</h1></Col> }
-        </Row>
-      </Container>
-    );
+    //const { movies, loading} = this.state
+    return (this.props.loading) ?
+      <Container><h1 className='flex f-large v-center h-center'>Loading Country Names...</h1></Container> :
+      (!this.props.posts.length) ?
+        <Container><h1 className='f-large'> No Movies </h1></Container> :
+        <Container>
+          <div className='mb-24 [ flex space-between wrap ] '>
+            {this.props.posts.map(
+              item => (
+                  <Movie key={item.id} {...item} />
+              )
+            )}
+          </div>
+        </Container>
   }
 }
 
-export default MoviesList;
+MoviesList.propTypes = {
+  posts: PropTypes.array,
+  loading: PropTypes.bool
+}
+
+const mapStateToProps = state => {
+  return {
+    posts: state.moviesState.posts,
+    loading: state.moviesState.loading
+  }
+}
+
+export default connect(mapStateToProps)(MoviesList)
