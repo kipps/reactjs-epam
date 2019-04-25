@@ -9,6 +9,9 @@ module.exports = env => {
   return {
     entry: "./src/index.js",
     devtool: 'source-map',
+    devServer: {
+      historyApiFallback: true
+    },
     output: {
       path: path.join(__dirname, "/dist"),
       filename: "index-bundle.js"
