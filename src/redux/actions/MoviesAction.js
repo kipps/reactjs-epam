@@ -72,5 +72,6 @@ export function fetchSearchMovie(obj) {
   (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
 
   console.log(path);
+  // window.location.pathname = `/search/Search%${path}`;
   return fetch(`https://reactjs-cdp.herokuapp.com/movies?${path}`).then((response) => response.json());
 }

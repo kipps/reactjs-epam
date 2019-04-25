@@ -1,12 +1,17 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom';
+import Container from "react-bootstrap/Container";
 import MovieItem from './MovieItem';
 
 const MovieComponent = () => {
-    <Switch>
-        <Route exact path='/film' component={FullMoiveComponent}/>
-        <Route path='/film/:id' component={MovieItem}/>
-    </Switch>
+    return (
+      <Container>
+          <h2>Title</h2>
+          <Switch>
+              <Route path='/film/:id' component={MovieItem}/>
+          </Switch>
+      </Container>
+    )
 }
 
 export default MovieComponent;
