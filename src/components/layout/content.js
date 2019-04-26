@@ -16,17 +16,6 @@ const search = () => {
 
 class Content extends React.Component {
     render() {
-        // let Child;
-        // let location = window.location;
-        //
-        // switch (location.pathname) {
-        //     case '/':
-        //         Child = Home; break;
-        //     case '/search':
-        //         Child = search; break;
-        //     default:
-        //         Child = page404; break;
-        // }
         
         return (
             <div className='Content'>
@@ -37,7 +26,6 @@ class Content extends React.Component {
                         <Route path='/search' component={MoviesList}/>
                         <Route component={PageNotFoundComponent}/>
                     </Switch>
-                    {/*<Child />*/}
                 </div>
             </div>
         );
