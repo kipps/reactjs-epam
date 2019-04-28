@@ -7,9 +7,9 @@ const MovieComponent = () => {
     return (
       <Container>
           <h2 className={'f-large'}>Title</h2>
-          <Switch>
-              <Route path='/film/:id' component={MovieItem}/>
-          </Switch>
+          {/*<Switch>*/}
+          {/*    /!*<Route path='/film/:id' component={MovieItem}/>*!/*/}
+          {/*</Switch>*/}
       </Container>
     )
 }

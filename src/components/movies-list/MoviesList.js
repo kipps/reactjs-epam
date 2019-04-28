@@ -1,10 +1,10 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container'
-import Movie from '../movie/Movie';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import store from '../../redux/store/configureStore'
 import { fetchPostsRequest } from "../../redux/actions/MoviesAction";
+import Container from 'react-bootstrap/Container'
+import Movie from '../movie/Movie';
 
 class MoviesList extends React.Component {
   componentDidMount() {
@@ -12,7 +12,6 @@ class MoviesList extends React.Component {
   }
 
   render() {
-    //const { movies, loading} = this.state
     return (this.props.loading) ?
       <Container><h1 className='flex f-large v-center h-center'>Loading Country Names...</h1></Container> :
       (!this.props.posts.length) ?

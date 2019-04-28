@@ -24,7 +24,6 @@ const renderInput = ({input, meta, type, name, value, className}) =>
 let SearchComponent = ({handleSubmit, submitting}) => {
   return (
     <form onSubmit={handleSubmit(showResults)}>
-
       <div>
         <Container className={'pb-16'}>
           <div className='flex flex-row v-center'>

@@ -12,7 +12,7 @@ class App extends React.Component {
       <ErrorBoundary>
           <div className="App body">
             <Header/>
-              <Content/>
+            <Content/>
             <Footer/>
           </div>
       </ErrorBoundary>
