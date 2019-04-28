@@ -5,16 +5,16 @@ import {Link} from 'react-router-dom';
 const Movie = (props) => {
   return (
     <div className={'Movie mb-32'}>
-      <Link to={`film/${props.id}`} className='link-clear block'>
+      <a href={`film/${props.id}`} className='link-clear block'>
         <img alt={props.title} src={props.poster_path} className='Movie__img'/>
-      </Link>
+      </a>
       <div>
         <div className='mb-8'>
           <div className='Movie__date mb-8'>
             {props.release_date}
           </div>
           <h3>
-            <Link to={`film/${props.id}`} className='link-clear block'>{props.title}</Link></h3>
+            <a href={`film/${props.id}`} className='link-clear block'>{props.title}</a></h3>
         </div>
         <div className='Movie__genres'>
           <span>

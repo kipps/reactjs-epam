@@ -42,7 +42,7 @@ class MovieItem extends React.Component {
         <Container>
           <header className={'mb-24'}>
             <div className={'mb-8'}>
-              <Link to={'/'} className={'link-clear'}><i className="fas fa-chevron-left"></i> Back</Link>
+              <a href={'/'} className={'link-clear'}><i className="fas fa-chevron-left"></i> Back</a>
             </div>
           </header>
           <div className={'flex flex-row'} style={{alignItems: 'end'}}>
