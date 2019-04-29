@@ -9,7 +9,18 @@ import Container from 'react-bootstrap/Container';
 import SearchResult from "../search-result/SearchResult";
 
 function showResults(value) {
-  store.dispatch(searchByTitle(value))
+  // store.dispatch(searchByTitle(value));
+  let {search, searchBy, sortBy} = value;
+  let title, path;
+
+  if(search != undefined ) {
+    title = encodeURIComponent(search);
+    path = `search=${title}`
+  }
+  (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
+  (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
+
+  window.location.pathname = `/search/${path}`;
 }
 
 const renderSelect = ({input, meta, type, name, value, className}) =>

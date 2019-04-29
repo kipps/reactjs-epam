@@ -9,8 +9,9 @@ import Container from "react-bootstrap/Container";
 class MovieItem extends React.Component {
 
   componentDidMount() {
-    let id = (window.location.pathname).replace('/film/', '');
-    store.dispatch(getPostRequest(id));
+    let replace;
+    window.location.pathname.includes('/search/') ? replace = '/search/film/' : replace = '/film/';
+    store.dispatch(getPostRequest(window.location.pathname.replace(replace, '')));
   }
 
   render() {
@@ -42,13 +43,14 @@ class MovieItem extends React.Component {
         <Container>
           <header className={'mb-24'}>
             <div className={'mb-8'}>
-              <a href={'/'} className={'link-clear'}><i className="fas fa-chevron-left"></i> Back</a>
+              <a href={'/'} className={'link-clear'}><i className="fas fa-chevron-left"></i> Back to list</a>
             </div>
+            <h2 className={'f-large mb-16'}>{title}</h2>
           </header>
           <div className={'flex flex-row'} style={{alignItems: 'end'}}>
             <img alt={title} src={poster_path} style={posterStyle} className='Movie__img mr-32'/>
             <div>
-              <h2 className={'f-large mb-16'}>{title}</h2>
+
               <div className={'mb-8'}>Tags: <b>{tagline ? tagline : 'no tags'}</b></div>
               <div className={'mb-8'}>Genres: <b>{showGenres()}</b></div>
               <div>Release date: <b>{release_date}</b></div>

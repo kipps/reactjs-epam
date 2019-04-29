@@ -1,8 +1,8 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom'
-import MoviesList from '../movies-list/MoviesList'
+import {Switch, Route} from 'react-router-dom';
+import MoviesList from '../movies-list/MoviesList';
+import MoveListSearch from '../movies-list/MoveListSearch'
 import PageNotFoundComponent from "../page404/PageNotFoundComponent";
-import MovieComponent from "../movie/MovieComponent";
 import MovieItem from "../movie/MovieItem";
 
 class Content extends React.Component {
@@ -14,8 +14,8 @@ class Content extends React.Component {
                     <Switch>
                         <Route exact={true} path='/' component={MoviesList}/>
                         <Route exact={true} path='/film/:id' component={MovieItem}/>
-                        <Route exact={true} path='/film' component={MovieComponent}/>
-                        <Route exact={true} path='/search' component={MoviesList}/>
+                        <Route exact={true} path='/search/film/:id' component={MovieItem}/>
+                        <Route exact={true} path='/search/:query' component={MoveListSearch}/>
                         <Route component={PageNotFoundComponent}/>
                     </Switch>
                 </div>

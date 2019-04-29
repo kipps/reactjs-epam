@@ -48,13 +48,6 @@ export function searchByTitle(title) {
   };
 }
 
-export function searchByGenre(genre) {
-  return {
-    type: 'SEARCH_BY_GENRE',
-    payload: genre
-  };
-}
-
 export function moviesSearchFetchSuccessfulAction(movies) {
   return {
     type: 'MOVIES_SEARCH_FETCH_SUCCESSFUL',
@@ -74,19 +67,8 @@ export const fetchPosts = Cmd.run(
   {successActionCreator: fetchPostsSuccess, failActionCreator: fetchPostsError}
 );
 
-export function fetchSearchMovie(obj) {
-  let {search, searchBy, sortBy} = obj;
-  let title, path;
-
-  if(search != undefined ) {
-    title = encodeURIComponent(search);
-    path = `search=${title}`
-  }
-  (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
-  (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
-
-  console.log(path);
-  return fetch(`https://reactjs-cdp.herokuapp.com/movies?${path}`).then((response) => response.json());
+export function fetchSearchMovie(query) {
+  return fetch(`https://reactjs-cdp.herokuapp.com/movies?${query}`).then((response) => response.json());
 }
 
 export function getPost(id) {

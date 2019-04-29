@@ -1,7 +1,5 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-import store from '../../redux/store/configureStore';
-import {searchByTitle, searchByGenre} from "../../redux/actions/MoviesAction";
 import Button from "react-bootstrap/Button";
 
 function showResults(value) {
@@ -28,7 +26,6 @@ let SortComponent = ({handleSubmit}) => {
     </div>
   )
 }
-
 
 SortComponent = reduxForm({
   form: 'sortForm'
