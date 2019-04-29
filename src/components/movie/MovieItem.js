@@ -44,10 +44,10 @@ class MovieItem extends React.Component {
                 <Container>
                     <header className={'mb-24'}>
                         <div className={'mb-8'}>
-                            <a href={'/'} className={'link-clear'}>
-                                <i className="fas fa-chevron-left"></i>
+                            <Link to={'/'} className={'link-clear'}>
+                                <i className="fas fa-chevron-left inline mr-8"></i>
                                 Back to list
-                            </a>
+                            </Link>
                         </div>
                         <h2 className={'f-large mb-16'}>{title}</h2>
                     </header>
