@@ -1,7 +1,6 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import MoviesList from '../movies-list/MoviesList';
-import MoveListSearch from '../movies-list/MoveListSearch'
 import PageNotFoundComponent from "../page404/PageNotFoundComponent";
 import MovieItem from "../movie/MovieItem";
 
@@ -15,7 +14,7 @@ class Content extends React.Component {
                         <Route exact={true} path='/' component={MoviesList}/>
                         <Route exact={true} path='/film/:id' component={MovieItem}/>
                         <Route exact={true} path='/search/film/:id' component={MovieItem}/>
-                        <Route exact={true} path='/search/:query' component={MoveListSearch}/>
+                        <Route exact={true} path='/search/:query' component={MoviesList}/>
                         <Route component={PageNotFoundComponent}/>
                     </Switch>
                 </div>

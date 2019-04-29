@@ -12,7 +12,8 @@ const initialState = {
     posts: [],
     post: {},
     searchType: 'title',
-    loading: false
+    loading: false,
+    headerSearchShow: true
 }
 
 export function movieReducer(state = initialState, action) {
