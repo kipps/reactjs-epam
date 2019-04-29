@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import store from '../../redux/store/configureStore'
-import {getPostRequest} from "../../redux/actions/MoviesAction";
+import {getPostRequest, headerSearchSet} from "../../redux/actions/MoviesAction";
 import {Link} from 'react-router-dom';
 import Container from "react-bootstrap/Container";
 
@@ -12,6 +12,7 @@ class MovieItem extends React.Component {
         let replace;
         window.location.pathname.includes('/search/') ? replace = '/search/film/' : replace = '/film/';
         store.dispatch(getPostRequest(window.location.pathname.replace(replace, '')));
+        store.dispatch(headerSearchSet(false))
     }
 
     render() {

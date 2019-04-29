@@ -1,9 +1,9 @@
 import {Cmd} from 'redux-loop';
 
-export const setYear = (year) => {
+export const headerSearchSet = (boolean) => {
   return {
-    type: SET_YEAR,
-    payload: year,
+    type: 'SET_SEARCH_HEADER',
+    payload: boolean
   }
 }
 

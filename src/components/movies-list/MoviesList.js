@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import store from '../../redux/store/configureStore'
-import {fetchPostsRequest, searchByTitle} from "../../redux/actions/MoviesAction";
+import {fetchPostsRequest, searchByTitle, headerSearchSet} from "../../redux/actions/MoviesAction";
 import Movie from '../movie/Movie';
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
@@ -13,6 +13,7 @@ class MoviesList extends React.Component {
     componentDidMount() {
         let path = window.location.pathname;
         path.includes('/search/') ? store.dispatch(searchByTitle(path.replace('/search/', ''))) : store.dispatch(fetchPostsRequest());
+        store.dispatch(headerSearchSet(true))
     }
 
     render() {
@@ -36,13 +37,15 @@ class MoviesList extends React.Component {
 
 MoviesList.propTypes = {
     posts: PropTypes.array,
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    headerSearchShow: PropTypes.bool
 }
 
 const mapStateToProps = state => {
     return {
         posts: state.moviesState.posts,
-        loading: state.moviesState.loading
+        loading: state.moviesState.loading,
+        headerSearchShow: state.moviesState.headerSearchShow
     }
 }
 
