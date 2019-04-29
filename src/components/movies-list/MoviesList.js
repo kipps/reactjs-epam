@@ -26,7 +26,7 @@ class MoviesList extends React.Component {
                         {this.props.posts.map(
                             item => (
                                 <Col key={item.id} md={3}>
-                                    <Movie {...item} />
+                                    <Movie path={'/film/'} {...item} />
                                 </Col>
                             )
                         )}
