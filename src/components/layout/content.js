@@ -9,7 +9,7 @@ class Content extends React.Component {
         
         return (
             <div className='Content'>
-                <div className='pt-24 pb-24'>
+                <div className='pt-24'>
                     <Switch>
                         <Route exact={true} path='/' component={MoviesList}/>
                         <Route exact={true} path='/film/:id' component={MovieItem}/>
