@@ -25,3 +25,23 @@ html, body, .body, #root {
 .inline {
   display: inline-block;
 }
+.clearfix {
+  &:after {
+    content: '';
+    display: flex;
+    clear: both;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.row {
+  margin-right: -12px;
+  margin-left: -12px;
+}

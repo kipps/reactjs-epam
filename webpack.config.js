@@ -9,9 +9,13 @@ module.exports = env => {
   return {
     entry: "./src/index.js",
     devtool: 'source-map',
+    devServer: {
+      historyApiFallback: true
+    },
     output: {
       path: path.join(__dirname, "/dist"),
-      filename: "index-bundle.js"
+      filename: "index-bundle.js",
+      publicPath: "http://localhost:8080/"
     },
     module: {
       rules: [

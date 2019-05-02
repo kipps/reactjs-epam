@@ -1,6 +1,9 @@
 import React from 'react';
-import User from '../user/User';
+import {connect} from "react-redux";
+import PropTypes from "prop-types";
+import store from '../../redux/store/configureStore'
 
+import User from '../user/User';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,6 +12,13 @@ import SearchComponent from "../search/SearchComponent";
 
 class Header extends React.Component {
   render() {
+    const showResultCounter = () => {
+      if(this.props.headerSearchShow) {
+        return (
+          <SearchComponent className={'full'}/>
+        )
+      }
+    }
     return (
       <header className="Header pt-24">
         <Container>
@@ -21,11 +31,21 @@ class Header extends React.Component {
             </Col>
           </Row>
         </Container>
-        <SearchComponent className={'full'}/>
-
+        {showResultCounter()}
       </header>
     );
   }
 }
 
-export default Header;
+
+Header.propTypes = {
+  headerSearchShow: PropTypes.bool
+}
+
+const mapStateToProps = state => {
+  return {
+    headerSearchShow: state.moviesState.headerSearchShow
+  }
+}
+
+export default connect(mapStateToProps)(Header)

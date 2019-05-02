@@ -1,0 +1,99 @@
+.form-control-wide {
+	width: 100%;
+}
+
+.form-control-number {
+	width: 100px;
+}
+
+.column-address {
+	min-width: 200px;
+}
+
+.column-centered {
+	text-align: center !important;
+}
+
+.column-time {
+	white-space: nowrap;
+}
+
+.gym-schedulle {
+	background: #ffffff;
+    padding: .3em .8em .8em .8em;
+    box-shadow: rgba(0,0,0,.1) 0 1px 3px;
+	border-radius: 2px;
+	margin-bottom: .5em;
+}
+
+.gym-schedulle h3 {
+	margin: .5em 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.gym-schedulle h3 code {
+	text-transform: none;
+}
+
+.gym-schedulle fieldset {
+	padding: 1.2em .5em .5em .5em;
+    background: #ededed;
+    border-radius: 2px;
+    border-left: 3px solid #0073aa;
+}
+
+.gym-schedulle fieldset legend {
+	position: relative;
+	top: .8em;
+	font-weight: 600;
+}
+
+.gym-schedulle fieldset .button.button-small {
+	margin: 1px;
+    height: 28px;
+    line-height: 26px;
+}
+
+.gym-schedulle-lesson {
+	margin-bottom: .5em;
+}
+
+.gym-schedulle-lesson input[type='text']{
+	position: relative;
+    top: 2px;
+    padding: 2px;
+    line-height: 28px;
+    height: 28px;
+}
+
+@media screen and (max-width: 782px) {
+	.column-primary.wide-content {
+		padding-left: 8px !important;
+	}
+}
+
+.metro-1 {
+	background: #d70834;
+	color: white;
+}
+.metro-2 {
+	background: #087dcd;
+	color: white;
+}
+.metro-3 {
+	background: #069857;
+	color: white;
+}
+.metro-4 {
+	background: #df6e08;
+	color: white;
+}
+.metro-5 {
+	background: #70047b;
+	color: white;
+}
+.metro-6 {
+	background: #8f5c2f;
+	color: white;
+}

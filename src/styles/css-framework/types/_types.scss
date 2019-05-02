@@ -7,6 +7,16 @@ h1, h2, h3, h4, h5, .title {
 
 a{
   text-decoration: underline;
+  @at-root &.link {
+    &-clear {
+      text-decoration: none;
+      color: black;
+      &:hover {
+        color: orangered;
+        transition: color .5s ease-out;
+      }
+    }
+  }
 }
 
 .bold, b, strong {
@@ -43,5 +53,17 @@ small, .small {
   }
   &-small {
     font-size: 0.7rem;
+  }
+}
+
+.line {
+  &-hight {
+    line-height: 1.8;
+  }
+  &-middle {
+    line-height: 1.2;
+  }
+  &-small {
+    line-height: 1;
   }
 }

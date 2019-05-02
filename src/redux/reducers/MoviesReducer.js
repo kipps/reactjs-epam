@@ -1,15 +1,20 @@
 import {loop, Cmd} from 'redux-loop';
 import {
     fetchPosts,
+    getPost,
+    headerSearchSet,
     fetchSearchMovie,
+    getPostSuccess,
     moviesSearchFetchSuccessfulAction,
     moviesSearchFetchFailedAction
 } from "../actions/MoviesAction";
 
 const initialState = {
     posts: [],
+    post: {},
     searchType: 'title',
-    loading: false
+    loading: false,
+    headerSearchShow: true
 }
 
 export function movieReducer(state = initialState, action) {
@@ -31,6 +36,19 @@ export function movieReducer(state = initialState, action) {
             );
         case 'MOVIES_SEARCH_FETCH_SUCCESSFUL':
             return {...state, posts: action.payload, loading: false};
+        case 'GET_POST':
+            return loop(
+              {...state, loading: true},
+              Cmd.run(getPost, {
+                  successActionCreator: getPostSuccess,
+                  failActionCreator: moviesSearchFetchFailedAction,
+                  args: [action.payload]
+              })
+            );
+        case "GET_POST_SUCCESS":
+            return {...state, post: action.payload, loading: false};
+        case 'SET_SEARCH_HEADER':
+            return {...state, headerSearchShow: action.payload};
         default:
             return state
     }
