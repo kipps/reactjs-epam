@@ -11,9 +11,6 @@ import styled, {css} from 'styled-components'
 import Movie from "./Movie";
 
 const getMovie = () => {
-  let replace;
-  console.log(location.pathname)
-  // location.pathname ? replace = '/film/' : replace = '/film/';
   store.dispatch(getPostRequest(location.pathname.replace('/film/', '')));
   store.dispatch(headerSearchSet(false));
   store.dispatch(fetchPostsRequest());
