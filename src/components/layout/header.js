@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 import store from '../../redux/store/configureStore'
 
@@ -26,7 +27,9 @@ class Header extends React.Component {
           <Row className='mb-24'>
             <Col className='flex v-center'>
               <h1 className='white f-large'>
-                <img width='347px' className={'Logo'} src={logoPath} alt=""/>
+                <Link to="/">
+                  <img width='347px' className={'Logo'} src={logoPath} alt=""/>
+                </Link>
               </h1>
             </Col>
             <Col className='flex v-center h-right'>
