@@ -15,6 +15,7 @@ export function fetchPostsRequest() {
 
 
 export function getPostRequest(id) {
+  console.log(id);
   return {
     type: "GET_POST",
     payload: id
@@ -68,6 +69,7 @@ export const fetchPosts = Cmd.run(
 );
 
 export function fetchSearchMovie(query) {
+  console.log('===>', query);
   return fetch(`https://reactjs-cdp.herokuapp.com/movies?${query}`).then((response) => response.json());
 }
 

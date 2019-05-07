@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 const Movie = (props) => {
-  const path = (location.pathname === '/' || location.pathname.includes('/search/')) ? `/film/${props.id}` : props.id;
+  const path = (location.pathname === '/' || location.pathname.includes('/search=')) ? `/film/${props.id}` : props.id;
 
   return (
     <div className={'Movie mb-32'}>

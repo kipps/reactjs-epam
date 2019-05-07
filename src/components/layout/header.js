@@ -10,6 +10,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SearchComponent from "../search/SearchComponent";
 import logoPath from '../../images/logo.png';
+import SearchResult from "../search-result/SearchResult";
+import SortComponent from "../sort-by/SortComponent";
 
 class Header extends React.Component {
   render() {
@@ -38,6 +40,18 @@ class Header extends React.Component {
           </Row>
         </Container>
         {showResultCounter()}
+        <div className='SortByContainer flex flex-row v-center pt-8 pb-8'>
+          <Container>
+            <div className={'flex flex-row v-center space-between'}>
+              <div>
+                <SearchResult />
+              </div>
+              <div>
+                <SortComponent/>
+              </div>
+            </div>
+          </Container>
+        </div>
       </header>
     );
   }
