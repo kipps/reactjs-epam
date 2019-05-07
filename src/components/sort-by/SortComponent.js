@@ -4,9 +4,14 @@ import Button from "react-bootstrap/Button";
 import history from "../../history";
 
 const showResults = (value) => {
-  // let path;
-  // history.push(path);
-  // https://reactjs-cdp.herokuapp.com/movies?sortBy=vote_average&search=father&searchBy=title
+  let path = location.pathname;
+  if(path === '/' || path.includes('sortOrder=')) {
+    path = `sortOrder=${value.sortBy}`;
+    console.log(path)
+  }
+
+  history.push(path);
+  //https://reactjs-cdp.herokuapp.com/movies?sortOrder=vote_count&search=father&searchBy=title
 }
 
 const renderInput = ({input, meta, type, name, value, className}) =>

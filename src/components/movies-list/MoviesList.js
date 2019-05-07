@@ -11,7 +11,8 @@ import Col from "react-bootstrap/Col";
 const getMovies = () => {
   let path = location.pathname;
   console.log(path);
-  (path !== '/') ? store.dispatch(searchByTitle(path.replace('/search=', 'search='))) : store.dispatch(fetchPostsRequest());
+  (path !== '/' && path.includes('/search=')) ? store.dispatch(searchByTitle(path.replace('/search=', 'search='))) : store.dispatch(fetchPostsRequest());
+  (path !== '/' && path.includes('/sortOrder=')) ? store.dispatch(searchByTitle(path.replace('/sortOrder=', 'sortOrder='))) : store.dispatch(fetchPostsRequest());
   store.dispatch(headerSearchSet(true));
 }
 

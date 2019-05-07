@@ -14,6 +14,7 @@ class Content extends React.Component {
                         <Route exact={true} path='/' component={MoviesList}/>
                         <Route exact={true} path='/film/:id' component={MovieItem}/>
                         <Route exact={true} path='/search=:query' component={MoviesList}/>
+                        <Route exact={true} path='/sortOrder=:query' component={MoviesList}/>
                         <Route component={PageNotFoundComponent}/>
                     </Switch>
                 </div>
