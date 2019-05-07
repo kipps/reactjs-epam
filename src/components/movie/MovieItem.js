@@ -10,14 +10,24 @@ import Col from "react-bootstrap/Col";
 import styled, {css} from 'styled-components'
 import Movie from "./Movie";
 
+const getMovie = () => {
+  let replace;
+  location.pathname.includes('/search/') ? replace = '/search/film/' : replace = '/film/';
+  store.dispatch(getPostRequest(location.pathname.replace(replace, '')));
+  store.dispatch(headerSearchSet(false));
+  store.dispatch(fetchPostsRequest());
+}
+
 class MovieItem extends React.Component {
 
   componentDidMount() {
-    let replace;
-    window.location.pathname.includes('/search/') ? replace = '/search/film/' : replace = '/film/';
-    store.dispatch(getPostRequest(window.location.pathname.replace(replace, '')));
-    store.dispatch(headerSearchSet(false));
-    store.dispatch(fetchPostsRequest());
+    getMovie();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (location.pathname !== prevProps.location.pathname) {
+      getMovie();
+    }
   }
 
   render() {

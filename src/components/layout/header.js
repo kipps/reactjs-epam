@@ -7,8 +7,8 @@ import User from '../user/User';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import SearchComponent from "../search/SearchComponent";
+import logoPath from '../../images/logo.png';
 
 class Header extends React.Component {
   render() {
@@ -19,12 +19,15 @@ class Header extends React.Component {
         )
       }
     }
+
     return (
       <header className="Header pt-24">
         <Container>
           <Row className='mb-24'>
             <Col className='flex v-center'>
-              <h1 className='white f-large'>Movies for fun</h1>
+              <h1 className='white f-large'>
+                <img width='347px' className={'Logo'} src={logoPath} alt=""/>
+              </h1>
             </Col>
             <Col className='flex v-center h-right'>
               <User/>

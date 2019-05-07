@@ -7,6 +7,7 @@ import {Field, reduxForm} from 'redux-form';
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
 import SearchResult from "../search-result/SearchResult";
+import history from "../../history";
 
 function showResults(value) {
   // store.dispatch(searchByTitle(value));
@@ -20,7 +21,8 @@ function showResults(value) {
   (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
   (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
 
-  window.location.pathname = `/search/${path}`;
+  history.push('/search/' + path);
+  //window.location.pathname = ``;
 }
 
 const renderSelect = ({input, meta, type, name, value, className}) =>
