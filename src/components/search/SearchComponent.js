@@ -7,21 +7,23 @@ import {Field, reduxForm} from 'redux-form';
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
 import SearchResult from "../search-result/SearchResult";
+import { withRouter } from 'react-router-dom';
 
-function showResults(value) {
-  // store.dispatch(searchByTitle(value));
-  let {search, searchBy, sortBy} = value;
-  let title, path;
+// function showResults(value) {
 
-  if(search != undefined ) {
-    title = encodeURIComponent(search);
-    path = `search=${title}`
-  }
-  (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
-  (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
+//   // store.dispatch(searchByTitle(value));
+//   let {search, searchBy, sortBy} = value;
+//   let title, path;
 
-  window.location.pathname = `/search/${path}`;
-}
+//   if(search != undefined ) {
+//     title = encodeURIComponent(search);
+//     path = `search=${title}`
+//   }
+//   (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
+//   (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
+  
+//   // window.location.pathname = `/search/${path}`;
+// }
 
 const renderSelect = ({input, meta, type, name, value, className}) =>
   <select {...input}>
@@ -32,7 +34,25 @@ const renderSelect = ({input, meta, type, name, value, className}) =>
 const renderInput = ({input, meta, type, name, value, className}) =>
   <input type={type} name={name} className={className} placeholder='Search' value={value} {...input}/>
 
-let SearchComponent = ({handleSubmit, submitting}) => {
+let SearchComponent = props => {
+  const handleSubmit = props.handleSubmit;
+  const submitting = props.submitting;
+
+  const showResults = (value) => {
+    let {search, searchBy, sortBy} = value;
+    let title, path;
+
+    if(search != undefined ) {
+      title = encodeURIComponent(search);
+      path = `search=${title}`
+    }
+    (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
+    (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
+
+    props.history.push(`/search/${path}`);
+    // window.location.pathname = `/search/${path}`;
+  }
+
   return (
     <form onSubmit={handleSubmit(showResults)}>
       <div>
@@ -81,9 +101,9 @@ const mapStateToProps = state => {
   }
 }
 
-SearchComponent = reduxForm({
+SearchComponent = withRouter(reduxForm({
   form: 'search',
   destroyOnUnmount: false
-})(SearchComponent)
+})(SearchComponent));
 
 export default connect(mapStateToProps)(SearchComponent);
