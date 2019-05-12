@@ -18,7 +18,21 @@ class Header extends React.Component {
     const showResultCounter = () => {
       if(this.props.headerSearchShow) {
         return (
-          <SearchComponent className={'full'}/>
+          <div>
+            <SearchComponent className={'full'}/>
+            <div className='SortByContainer flex flex-row v-center pt-8 pb-8'>
+              <Container>
+                <div className={'flex flex-row v-center space-between'}>
+                  <div>
+                    <SearchResult />
+                  </div>
+                  <div>
+                    <SortComponent/>
+                  </div>
+                </div>
+              </Container>
+            </div>
+          </div>
         )
       }
     }
@@ -40,18 +54,6 @@ class Header extends React.Component {
           </Row>
         </Container>
         {showResultCounter()}
-        <div className='SortByContainer flex flex-row v-center pt-8 pb-8'>
-          <Container>
-            <div className={'flex flex-row v-center space-between'}>
-              <div>
-                <SearchResult />
-              </div>
-              <div>
-                <SortComponent/>
-              </div>
-            </div>
-          </Container>
-        </div>
       </header>
     );
   }
