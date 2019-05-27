@@ -1,22 +1,18 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import Button from "react-bootstrap/Button";
-import history from "../../history";
 
-const showResults = (value) => {
-  let path = location.pathname;
-  if(path === '/' || path.includes('sortOrder=')) {
-    path = `sortOrder=${value.sortBy}`;
-    console.log(path)
-  }
+function showResults(value) {
+  console.log('sorted', value)
+}
 
-  history.push(path);
-  //https://reactjs-cdp.herokuapp.com/movies?sortOrder=vote_count&search=father&searchBy=title
+function handleChange(event) {
+  console.log(event);
 }
 
 const renderInput = ({input, meta, type, name, value, className}) =>
   <select {...input}>
-    <option value="vote_count">Rating</option>
+    <option value="rating">Rating</option>
     <option value="release_date">Release date</option>
   </select>
 
@@ -32,10 +28,7 @@ let SortComponent = ({handleSubmit}) => {
 }
 
 SortComponent = reduxForm({
-  form: 'sortForm',
-  initialValues: {
-    sortBy: 'vote_count'
-  }
+  form: 'sortForm'
 })(SortComponent)
 
 export default SortComponent;

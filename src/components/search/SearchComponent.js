@@ -7,18 +7,27 @@ import {Field, reduxForm} from 'redux-form';
 import Button from "react-bootstrap/Button";
 import Container from 'react-bootstrap/Container';
 import SearchResult from "../search-result/SearchResult";
-import history from "../../history";
-import SortComponent from "../sort-by/SortComponent";
 
 function showResults(value) {
-  let {search, searchBy} = value;
-  let queryText, path;
+  // store.dispatch(searchByTitle(value));
+  let {search, searchBy, sortBy} = value;
+  let title, path;
+
   if(search != undefined ) {
-    queryText = encodeURIComponent(search);
-    path = `search=${queryText}&searchBy=${searchBy}`;
-    history.push('/' + path);
+    title = encodeURIComponent(search);
+    path = `search=${title}`
   }
+  (searchBy != undefined )? path = path + `&searchBy=${searchBy}` : path = path + `&searchBy=title`;
+  (sortBy != undefined  && title != undefined) ? path = `sortOrder=${sortBy}&` + path : path = `sortOrder=vote_average&` + path;
+
+  window.location.pathname = `/search/${path}`;
 }
+
+const renderSelect = ({input, meta, type, name, value, className}) =>
+  <select {...input}>
+    <option value="vote_average">Rating</option>
+    <option value="release_date">Release date</option>
+  </select>
 
 const renderInput = ({input, meta, type, name, value, className}) =>
   <input type={type} name={name} className={className} placeholder='Search' value={value} {...input}/>
@@ -44,6 +53,19 @@ let SearchComponent = ({handleSubmit, submitting}) => {
             </label>
           </div>
         </Container>
+        <div className='SortByContainer flex flex-row v-center pt-8 pb-8'>
+          <Container>
+            <div className={'flex flex-row v-center space-between'}>
+              <div>
+                <SearchResult />
+              </div>
+              <div>
+                <label className={'inline mr-8'}>Sort by:</label>
+                <Field name='sortBy' className={'full mr-16'} type='select' component={renderSelect}/>
+              </div>
+            </div>
+          </Container>
+        </div>
       </div>
     </form>
   )
@@ -61,10 +83,7 @@ const mapStateToProps = state => {
 
 SearchComponent = reduxForm({
   form: 'search',
-  destroyOnUnmount: false,
-  initialValues: {
-    searchBy: 'title'
-  }
+  destroyOnUnmount: false
 })(SearchComponent)
 
 export default connect(mapStateToProps)(SearchComponent);

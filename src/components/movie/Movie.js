@@ -3,23 +3,20 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 const Movie = (props) => {
-  let getPath = location.pathname;
-  const path = ( getPath === '/'
-    || getPath.includes('/search=')
-    || getPath.includes('/sortOrder=')) ? `/film/${props.id}` : props.id;
+  const path = (window.location.pathname === '/' || window.location.pathname.includes('/search/')) ? `/film/${props.id}` : props.id;
 
   return (
     <div className={'Movie mb-32'}>
-      <Link to={`${path}`} className='link-clear block'>
+      <a href={`${path}`} className='link-clear block'>
         <img alt={props.title} src={props.poster_path} className='Movie__img'/>
-      </Link>
+      </a>
       <div>
         <div className='mb-8'>
           <div className='Movie__date mb-8'>
             {props.release_date}
           </div>
           <h3>
-            <Link to={`${path}`} className='link-clear block'>{props.title}</Link></h3>
+            <a href={`${path}`} className='link-clear block'>{props.title}</a></h3>
         </div>
         <div className='Movie__genres'>
           <span>
