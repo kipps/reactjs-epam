@@ -11,7 +11,10 @@
     "test": "jest --watchAll",
     "test-c": "jest --watchAll --coverage --collectCoverageFrom=src/**/*.js",
     "snap-update": "jest --updateSnapshot",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "ssr-start": "cross-env NODE_ENV=development node ./server",
+    "ssr-build": "cross-env NODE_ENV=production webpack --config ./webpack.prod",
+    "ssr-prod": "cross-env NODE_ENV=production node ./server"
   },
   "repository": {
     "type": "git",
@@ -26,7 +29,9 @@
   "dependencies": {
     "animejs": "^3.0.1",
     "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
+    "es6-promise": "^4.2.6",
     "express": "^4.17.1",
     "history": "^4.9.0",
     "isomorphic-fetch": "^2.2.1",
@@ -62,6 +67,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.1",
     "create-react-server": "^0.3.2",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "deep-freeze": "0.0.1",
     "enzyme": "^3.9.0",
