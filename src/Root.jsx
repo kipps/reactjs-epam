@@ -6,10 +6,7 @@ import { hot } from 'react-hot-loader';
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import Hello from './components/Hello';
-import HomePage from './pages/HomePage';
-import UsersPage from './pages/UsersPage';
-import UserPage from './pages/UserPage';
+import MoviesPage from './pages/MoviesPage';
 
 const Root = ({
   Router, location, context, store,
@@ -17,16 +14,8 @@ const Root = ({
   <Provider store={store}>
     <Router location={location} context={context}>
       <div>
-        <h1>Server Side Renderig</h1>
-        <Hello name="World" />
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/users">Users</Link></li>
-        </ul>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/users/:userId" component={UserPage} />
-          <Route path="/users" component={UsersPage} />
+          <Route exact path="/" component={MoviesPage} />
           <Redirect to="/" />
         </Switch>
       </div>

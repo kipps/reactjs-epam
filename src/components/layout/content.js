@@ -1,12 +1,12 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import MoviesList from '../movies-list/MoviesList';
+import MoviesList from '../Movies/MoviesList';
 import PageNotFoundComponent from "../page404/PageNotFoundComponent";
-import MovieItem from "../movie/MovieItem";
+import MovieItem from "../Movie/MovieItem";
 
 class Content extends React.Component {
     render() {
-        
+
         return (
             <div className='Content'>
                 <div className='pt-24'>
