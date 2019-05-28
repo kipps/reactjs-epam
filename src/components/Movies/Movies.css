@@ -1,0 +1,23 @@
+/*.Movies:after {*/
+/*    content: '';*/
+/*    clear: both;*/
+/*    display: block;*/
+/*}*/
+
+.Movies {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+.Movies > div {
+    margin: 0 12px 32px;
+    width: 20%;
+    float: left;
+}
+
+.Movies > div img {
+    width: 270px;
+    height: 390px;
+}

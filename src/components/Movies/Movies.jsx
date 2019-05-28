@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import s from './Movies.css'
 
 import Movie from '../Movie';
 
 const Movies = ({ movies }) => (
-  <div className="movies">
+  <div className={s.Movies}>
     {movies.map(item => (
       <Movie item={item} key={item.id} />
     ))}

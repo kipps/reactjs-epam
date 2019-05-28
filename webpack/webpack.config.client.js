@@ -19,7 +19,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$|\.scss$/,
         include: /src/,
         use: [
           isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -31,6 +31,10 @@ module.exports = merge(common, {
             },
           },
         ],
+      },
+      {
+        test: /\.jpe?g$|\.gif$|\.png$|\.woff$|\.ttf$|\.wav$|\.mp3$/,
+        loader: "file-loader"
       },
     ],
   },

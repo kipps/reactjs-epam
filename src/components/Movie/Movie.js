@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import style from './Movie.css';
 
 const Movie = ({ item }) => (
-  <div className="movie">
-    {item.title}
+  <div className={style.Movie}>
+    <img src={item.poster_path} alt=""/>
+    <h4>{item.title}</h4>
+
   </div>
 );
 
 Movie.propTypes = {
   item: PropTypes.shape({
-    // login: PropTypes.string.isRequired,
   }).isRequired,
 };
 

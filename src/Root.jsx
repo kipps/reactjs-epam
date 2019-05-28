@@ -7,6 +7,7 @@ import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import MoviesPage from './pages/MoviesPage';
+import Header from "./components/layout/header";
 
 const Root = ({
   Router, location, context, store,
@@ -14,6 +15,7 @@ const Root = ({
   <Provider store={store}>
     <Router location={location} context={context}>
       <div>
+        <Header />
         <Switch>
           <Route exact path="/" component={MoviesPage} />
           <Redirect to="/" />
