@@ -10,7 +10,6 @@ const MoviesPage = ({ loading, movies, fetchMovies }) => {
     fetchMovies();
   }, []);
 
-  console.log(movies);
   return (
     <div>
       <h2 className={styles.title}>Movies Page</h2>

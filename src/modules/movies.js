@@ -29,8 +29,7 @@ export const updateCurrentMovie = movie => ({
 // Get Movies
 export function* fetchMoviesAsync() {
   const response = yield call(fetch, 'https://reactjs-cdp.herokuapp.com/movies/');
-  const movies = yield response.json()
-  console.log('movies', movies.data, typeof movies.data);
+  const movies = yield response.json();
   yield put(updateMovies(movies.data));
 }
 
@@ -41,7 +40,6 @@ export function* watchFetchMovies() {
 export function* fetchMovieByIdAsync(action) {
   const response = yield call(fetch, `https://reactjs-cdp.herokuapp.com/movies/${action.payload}`);
   const movie = yield response.json();
-
   yield put(updateCurrentMovie(movie));
 }
 export function* watchFetchMovieById() {

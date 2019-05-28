@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Movie = ({ item }) => (
   <div className="movie">
-    <Link to={`/movies/${item.login}`}>{item.login}</Link>
+    {item.title}
   </div>
 );
 
