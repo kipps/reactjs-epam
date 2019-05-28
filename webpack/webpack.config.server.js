@@ -1,4 +1,3 @@
-    
 const merge = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.config.common');
@@ -18,7 +17,13 @@ module.exports = merge(common, {
         test: /\.css$/,
         include: /src/,
         use: [
-          'css-loader/locals', // It doesn't embed CSS but only exports the identifier mappings.
+          {
+            loader: 'css-loader/locals', // It doesn't embed CSS but only exports the identifier mappings.
+            options: {
+              modules: true,
+              localIdentName: '[name]-[hash:5]',
+            },
+          },
         ],
       },
     ],
