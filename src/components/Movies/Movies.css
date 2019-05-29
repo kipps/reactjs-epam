@@ -1,9 +1,3 @@
-/*.Movies:after {*/
-/*    content: '';*/
-/*    clear: both;*/
-/*    display: block;*/
-/*}*/
-
 .Movies {
     display: flex;
     justify-content: flex-start;
@@ -11,13 +5,14 @@
 }
 
 
-.Movies > div {
+.Movies > a {
+    display: block;
     margin: 0 12px 32px;
     width: 20%;
     float: left;
 }
 
-.Movies > div img {
+.Movies > a img {
     width: 270px;
     height: 390px;
 }

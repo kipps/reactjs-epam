@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 
 import MoviesPage from './pages/MoviesPage';
 import Header from "./components/layout/header";
+import MoviePage from "./pages/MoviePage/MoviePage";
 
 const Root = ({
   Router, location, context, store,
@@ -18,7 +19,8 @@ const Root = ({
         <Header />
         <Switch>
           <Route exact path="/" component={MoviesPage} />
-          <Redirect to="/" />
+          <Route path="/movies/:movieId" component={MoviePage} />
+          {/*<Redirect to="/" />*/}
         </Switch>
       </div>
     </Router>
