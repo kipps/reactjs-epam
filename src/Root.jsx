@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import MoviesPage from './pages/MoviesPage';
 import Header from "./components/layout/header";
-import MoviePage from "./pages/MoviePage/MoviePage";
+import MoviePage from "./pages/MoviePage";
 
 const Root = ({
   Router, location, context, store,

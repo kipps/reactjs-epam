@@ -5,10 +5,10 @@ import styles from './MoviePage.scss';
 
 class MoviePage extends PureComponent {
   static propTypes = {
-    fetchUserById: PropTypes.func.isRequired,
-    movieId: PropTypes.string.isRequired,
+    fetchMovieById: PropTypes.func.isRequired,
+    movieId: PropTypes.number.isRequired,
     loading: PropTypes.bool.isRequired,
-    movie: PropTypes.arrayOf(PropTypes.shape({})),
+    movie: PropTypes.any
   };
 
   static defaultProps = {

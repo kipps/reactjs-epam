@@ -11,10 +11,13 @@ const UPDATE_CURRENT_MOVIE = 'Movies/UPDATE_CURRENT_MOVIE';
 export const fetchMovies = () => ({
   type: FETCH_MOVIES,
 });
-export const fetchMoveById = movieId => ({
-  type: FETCH_MOVIE_BY_ID,
-  payload: movieId,
-});
+export const fetchMovieById = movieId => {
+  console.log('fetchMovieById  = ' + movieId);
+  return {
+    type: FETCH_MOVIE_BY_ID,
+    payload : movieId,
+  };
+};
 
 export const updateMovies = movies => ({
   type: UPDATE,
@@ -38,6 +41,7 @@ export function* watchFetchMovies() {
 }
 
 export function* fetchMovieByIdAsync(action) {
+  console.log(action);
   const response = yield call(fetch, `https://reactjs-cdp.herokuapp.com/movies/${action.payload}`);
   const movie = yield response.json();
   yield put(updateCurrentMovie(movie));

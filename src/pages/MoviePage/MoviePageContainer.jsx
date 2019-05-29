@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMoveById } from '../../modules/movies';
+import { fetchMovieById } from '../../modules/movies';
 import MoviePage from './MoviePage';
 
 const mapStateToProps = (state, props) => ({
   movie: state.movies.current,
   loading: state.movies.loading,
-  movieId: props.match.params.movieId,
+  movieId: parseInt(props.match.params.movieId, 10),
 });
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchMoveById,
+  fetchMovieById,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviePage);
