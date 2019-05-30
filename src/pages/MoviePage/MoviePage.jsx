@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../components/Loader';
-import styles from './MoviePage.scss';
+import s from './MoviePage.scss';
 
 class MoviePage extends PureComponent {
   static propTypes = {
@@ -26,10 +26,25 @@ class MoviePage extends PureComponent {
   render() {
     const { loading, movie } = this.props;
     return (
-      <div>
-        <h2 className={styles.title}>Movie Page</h2>
+      <div className={s.Movie}>
+        <h2 className={s.Movie_title}>{movie.title}</h2>
         <Loader loading={loading} />
-        <pre>{JSON.stringify(movie, null, 2)}</pre>
+        <div>
+          <div>
+            <img src={movie.poster_path} alt={'poster:' + movie.title}/>
+          </div>
+          <div>
+            <header>
+              {movie.genres}
+            </header>
+            <section>
+              <p>{movie.overview}</p>
+            </section>
+            <footer>
+              {movie.tagline}
+            </footer>
+          </div>
+        </div>
       </div>
     );
   }
