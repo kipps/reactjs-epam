@@ -16,6 +16,15 @@ class MoviesList extends React.Component {
         store.dispatch(headerSearchSet(true))
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname !== prevProps.location.pathname) {
+            console.log('route changed');
+            let path = window.location.pathname;
+            path.includes('/search/') ? store.dispatch(searchByTitle(path.replace('/search/', ''))) : store.dispatch(fetchPostsRequest());
+            store.dispatch(headerSearchSet(true));
+        }
+    }
+
     render() {
         return (this.props.loading) ?
             <Container><h1 className='flex f-large v-center h-center'>Loading Country Names...</h1></Container> :
