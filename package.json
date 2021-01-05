@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/kipps/reactjs-epam#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "cypress-jest-adapter": "0.0.3",
     "express": "^4.16.4",
